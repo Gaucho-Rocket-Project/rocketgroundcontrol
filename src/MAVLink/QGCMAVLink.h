@@ -40,13 +40,14 @@ public:
     static constexpr const FirmwareClass_t FirmwareClassArduPilot = MAV_AUTOPILOT_ARDUPILOTMEGA;
     static constexpr const FirmwareClass_t FirmwareClassGeneric   = MAV_AUTOPILOT_GENERIC;
 
-    static constexpr const VehicleClass_t VehicleClassAirship     = MAV_TYPE_AIRSHIP;
-    static constexpr const VehicleClass_t VehicleClassFixedWing   = MAV_TYPE_FIXED_WING;
-    static constexpr const VehicleClass_t VehicleClassRoverBoat   = MAV_TYPE_GROUND_ROVER;
-    static constexpr const VehicleClass_t VehicleClassSub         = MAV_TYPE_SUBMARINE;
+    // static constexpr const VehicleClass_t VehicleClassAirship     = MAV_TYPE_AIRSHIP;
+    // static constexpr const VehicleClass_t VehicleClassFixedWing   = MAV_TYPE_FIXED_WING;
+    // static constexpr const VehicleClass_t VehicleClassRoverBoat   = MAV_TYPE_GROUND_ROVER;
+    // static constexpr const VehicleClass_t VehicleClassSub         = MAV_TYPE_SUBMARINE;
     static constexpr const VehicleClass_t VehicleClassSpacecraft  = MAV_TYPE_SPACECRAFT_ORBITER;
-    static constexpr const VehicleClass_t VehicleClassMultiRotor  = MAV_TYPE_QUADROTOR;
-    static constexpr const VehicleClass_t VehicleClassVTOL        = MAV_TYPE_VTOL_TAILSITTER_QUADROTOR;
+    static constexpr const VehicleClass_t VehicleClassRocket  = MAV_TYPE_ROCKET;
+    // static constexpr const VehicleClass_t VehicleClassMultiRotor  = MAV_TYPE_QUADROTOR;
+    // static constexpr const VehicleClass_t VehicleClassVTOL        = MAV_TYPE_VTOL_TAILSITTER_QUADROTOR;
     static constexpr const VehicleClass_t VehicleClassGeneric     = MAV_TYPE_GENERIC;
 
     static constexpr const uint8_t        maxRcChannels           = 18; // mavlink_rc_channels_t->chancount
@@ -60,13 +61,14 @@ public:
     static MAV_AUTOPILOT            firmwareTypeFromString      (const QString &firmwareTypeStr);
     static QList<FirmwareClass_t>   allFirmwareClasses          ();
 
-    static bool                     isAirship                   (MAV_TYPE mavType);
-    static bool                     isFixedWing                 (MAV_TYPE mavType);
-    static bool                     isRoverBoat                 (MAV_TYPE mavType);
-    static bool                     isSub                       (MAV_TYPE mavType);
+    // static bool                     isAirship                   (MAV_TYPE mavType);
+    // static bool                     isFixedWing                 (MAV_TYPE mavType);
+    // static bool                     isRoverBoat                 (MAV_TYPE mavType);
+    // static bool                     isSub                       (MAV_TYPE mavType);
     static bool                     isSpacecraft                (MAV_TYPE mavType);
-    static bool                     isMultiRotor                (MAV_TYPE mavType);
-    static bool                     isVTOL                      (MAV_TYPE mavType);
+    static bool                     isRocket                    (MAV_TYPE mavType);
+    // static bool                     isMultiRotor                (MAV_TYPE mavType);
+    // static bool                     isVTOL                      (MAV_TYPE mavType);
     static VehicleClass_t           vehicleClass                (MAV_TYPE mavType);
     static MAV_TYPE                 vehicleClassToMavType       (VehicleClass_t vehicleClass) { return static_cast<MAV_TYPE>(vehicleClass); }
     static QString                  vehicleClassToUserVisibleString(VehicleClass_t vehicleClass);

@@ -146,93 +146,102 @@ MAV_AUTOPILOT QGCMAVLink::firmwareTypeFromString(const QString &firmwareTypeStr)
     return MAV_AUTOPILOT_GENERIC;
 }
 
-bool QGCMAVLink::isAirship(MAV_TYPE mavType)
-{
-    return vehicleClass(mavType) == VehicleClassAirship;
-}
+// bool QGCMAVLink::isAirship(MAV_TYPE mavType)
+// {
+//     return vehicleClass(mavType) == VehicleClassAirship;
+// }
 
-bool QGCMAVLink::isFixedWing(MAV_TYPE mavType)
-{
-    return vehicleClass(mavType) == VehicleClassFixedWing;
-}
+// bool QGCMAVLink::isFixedWing(MAV_TYPE mavType)
+// {
+//     return vehicleClass(mavType) == VehicleClassFixedWing;
+// }
 
-bool QGCMAVLink::isRoverBoat(MAV_TYPE mavType)
-{
-    return vehicleClass(mavType) == VehicleClassRoverBoat;
-}
+// bool QGCMAVLink::isRoverBoat(MAV_TYPE mavType)
+// {
+//     return vehicleClass(mavType) == VehicleClassRoverBoat;
+// }
 
 bool QGCMAVLink::isSpacecraft(MAV_TYPE mavType)
 {
     return vehicleClass(mavType) == VehicleClassSpacecraft;
 }
 
-bool QGCMAVLink::isSub(MAV_TYPE mavType)
+bool QGCMAVLink::isRocket(MAV_TYPE mavType)
 {
-    return vehicleClass(mavType) == VehicleClassSub;
+    return vehicleClass(mavType) == VehicleClassRocket;
 }
 
-bool QGCMAVLink::isMultiRotor(MAV_TYPE mavType)
-{
-    return vehicleClass(mavType) == VehicleClassMultiRotor;
-}
+// bool QGCMAVLink::isSub(MAV_TYPE mavType)
+// {
+//     return vehicleClass(mavType) == VehicleClassSub;
+// }
 
-bool QGCMAVLink::isVTOL(MAV_TYPE mavType)
-{
-    return vehicleClass(mavType) == VehicleClassVTOL;
-}
+// bool QGCMAVLink::isMultiRotor(MAV_TYPE mavType)
+// {
+//     return vehicleClass(mavType) == VehicleClassMultiRotor;
+// }
+
+// bool QGCMAVLink::isVTOL(MAV_TYPE mavType)
+// {
+//     return vehicleClass(mavType) == VehicleClassVTOL;
+// }
 
 QGCMAVLink::VehicleClass_t QGCMAVLink::vehicleClass(MAV_TYPE mavType)
 {
     switch (mavType) {
-    case MAV_TYPE_GROUND_ROVER:
-    case MAV_TYPE_SURFACE_BOAT:
-        return VehicleClassRoverBoat;
-    case MAV_TYPE_SUBMARINE:
-        return VehicleClassSub;
+    // case MAV_TYPE_GROUND_ROVER:
+    // case MAV_TYPE_SURFACE_BOAT:
+    //     return VehicleClassRoverBoat;
+    // case MAV_TYPE_SUBMARINE:
+    //     return VehicleClassSub;
     case MAV_TYPE_SPACECRAFT_ORBITER:
         return VehicleClassSpacecraft;
-    case MAV_TYPE_QUADROTOR:
-    case MAV_TYPE_COAXIAL:
-    case MAV_TYPE_HELICOPTER:
-    case MAV_TYPE_HEXAROTOR:
-    case MAV_TYPE_OCTOROTOR:
-    case MAV_TYPE_TRICOPTER:
-        return VehicleClassMultiRotor;
-    case MAV_TYPE_VTOL_TAILSITTER_DUOROTOR:
-    case MAV_TYPE_VTOL_TAILSITTER_QUADROTOR:
-    case MAV_TYPE_VTOL_TILTROTOR:
-    case MAV_TYPE_VTOL_FIXEDROTOR:
-    case MAV_TYPE_VTOL_TAILSITTER:
-    case MAV_TYPE_VTOL_TILTWING:
-    case MAV_TYPE_VTOL_RESERVED5:
-        return VehicleClassVTOL;
-    case MAV_TYPE_FIXED_WING:
-        return VehicleClassFixedWing;
-    case MAV_TYPE_AIRSHIP:
-        return VehicleClassAirship;
-    default:
-        return VehicleClassGeneric;
-    }
+    case MAV_TYPE_ROCKET:
+        return VehicleClassRocket;
+    // case MAV_TYPE_QUADROTOR:
+    // case MAV_TYPE_COAXIAL:
+    // case MAV_TYPE_HELICOPTER:
+    // case MAV_TYPE_HEXAROTOR:
+    // case MAV_TYPE_OCTOROTOR:
+    // case MAV_TYPE_TRICOPTER:
+    //     return VehicleClassMultiRotor;
+    // case MAV_TYPE_VTOL_TAILSITTER_DUOROTOR:
+    // case MAV_TYPE_VTOL_TAILSITTER_QUADROTOR:
+    // case MAV_TYPE_VTOL_TILTROTOR:
+    // case MAV_TYPE_VTOL_FIXEDROTOR:
+    // case MAV_TYPE_VTOL_TAILSITTER:
+    // case MAV_TYPE_VTOL_TILTWING:
+    // case MAV_TYPE_VTOL_RESERVED5:
+    //     return VehicleClassVTOL;
+    // case MAV_TYPE_FIXED_WING:
+    //     return VehicleClassFixedWing;
+    // case MAV_TYPE_AIRSHIP:
+    //     return VehicleClassAirship;
+    // default:
+    //     return VehicleClassGeneric;
+    // }
 }
 
 QString QGCMAVLink::vehicleClassToUserVisibleString(VehicleClass_t vehicleClass)
 {
     switch (vehicleClass) {
-    case VehicleClassAirship:
-        return QT_TRANSLATE_NOOP("Vehicle Class", "Airship");
-    case VehicleClassFixedWing:
-        return QT_TRANSLATE_NOOP("Vehicle Class", "Fixed Wing");
-    case VehicleClassRoverBoat:
-        return QT_TRANSLATE_NOOP("Vehicle Class", "Rover-Boat");
-    case VehicleClassSub:
-        return QT_TRANSLATE_NOOP("Vehicle Class", "Sub");
+    // case VehicleClassAirship:
+    //     return QT_TRANSLATE_NOOP("Vehicle Class", "Airship");
+    // case VehicleClassFixedWing:
+    //     return QT_TRANSLATE_NOOP("Vehicle Class", "Fixed Wing");
+    // case VehicleClassRoverBoat:
+    //     return QT_TRANSLATE_NOOP("Vehicle Class", "Rover-Boat");
+    // case VehicleClassSub:
+    //     return QT_TRANSLATE_NOOP("Vehicle Class", "Sub");
     case VehicleClassSpacecraft:
         return QT_TRANSLATE_NOOP("Vehicle Class", "Spacecraft");
-    case VehicleClassMultiRotor:
-        return QT_TRANSLATE_NOOP("Vehicle Class", "Multi-Rotor");
-    case VehicleClassVTOL:
-        return QT_TRANSLATE_NOOP("Vehicle Class", "VTOL");
-    case VehicleClassGeneric:
+    case VehicleClassRocket:
+        return QT_TRANSLATE_NOOP("Vehicle Class", "Rocket");
+    // case VehicleClassMultiRotor:
+    //     return QT_TRANSLATE_NOOP("Vehicle Class", "Multi-Rotor");
+    // case VehicleClassVTOL:
+    //     return QT_TRANSLATE_NOOP("Vehicle Class", "VTOL");
+    // case VehicleClassGeneric:
         return QT_TRANSLATE_NOOP("Vehicle Class", "Generic");
     default:
         return QT_TRANSLATE_NOOP("Vehicle Class", "Unknown");
@@ -260,21 +269,23 @@ MAV_TYPE QGCMAVLink::vehicleTypeFromString(const QString &vehicleStr)
 QString QGCMAVLink::vehicleClassToInternalString(VehicleClass_t vehicleClass)
 {
     switch (vehicleClass) {
-    case VehicleClassAirship:
-        return QStringLiteral("Airship");
-    case VehicleClassFixedWing:
-        return QStringLiteral("FixedWing");
-    case VehicleClassRoverBoat:
-        return QStringLiteral("RoverBoat");
-    case VehicleClassSub:
-        return QStringLiteral("Sub");
-    case VehicleClassSpacecraft:
+    // case VehicleClassAirship:
+    //     return QStringLiteral("Airship");
+    // case VehicleClassFixedWing:
+    //     return QStringLiteral("FixedWing");
+    // case VehicleClassRoverBoat:
+    //     return QStringLiteral("RoverBoat");
+    // case VehicleClassSub:
+    //     return QStringLiteral("Sub");
+    // case VehicleClassSpacecraft:
         return QStringLiteral("Spacecraft");
-    case VehicleClassMultiRotor:
-        return QStringLiteral("MultiRotor");
-    case VehicleClassVTOL:
-        return QStringLiteral("VTOL");
-    case VehicleClassGeneric:
+    case VehicleClassRocket:
+        return QStringLiteral("Rocket");
+    // case VehicleClassMultiRotor:
+    //     return QStringLiteral("MultiRotor");
+    // case VehicleClassVTOL:
+    //     return QStringLiteral("VTOL");
+    // case VehicleClassGeneric:
         return QStringLiteral("Generic");
     default:
         return QStringLiteral("Unknown");
@@ -357,32 +368,32 @@ QString QGCMAVLink::mavSysStatusSensorToString(MAV_SYS_STATUS_SENSOR sysStatusSe
 QString QGCMAVLink::mavTypeToString(MAV_TYPE mavType) {
     static const QMap<int, QString> typeNames = {
         { MAV_TYPE_GENERIC,         tr("Generic micro air vehicle" )},
-        { MAV_TYPE_FIXED_WING,      tr("Fixed wing aircraft")},
-        { MAV_TYPE_QUADROTOR,       tr("Quadrotor")},
-        { MAV_TYPE_COAXIAL,         tr("Coaxial helicopter")},
-        { MAV_TYPE_HELICOPTER,      tr("Normal helicopter with tail rotor.")},
-        { MAV_TYPE_ANTENNA_TRACKER, tr("Ground installation")},
+        // { MAV_TYPE_FIXED_WING,      tr("Fixed wing aircraft")},
+        // { MAV_TYPE_QUADROTOR,       tr("Quadrotor")},
+        // { MAV_TYPE_COAXIAL,         tr("Coaxial helicopter")},
+        // { MAV_TYPE_HELICOPTER,      tr("Normal helicopter with tail rotor.")},
+        // { MAV_TYPE_ANTENNA_TRACKER, tr("Ground installation")},
         { MAV_TYPE_GCS,             tr("Operator control unit / ground control station")},
-        { MAV_TYPE_AIRSHIP,         tr("Airship, controlled")},
-        { MAV_TYPE_FREE_BALLOON,    tr("Free balloon, uncontrolled")},
+        // { MAV_TYPE_AIRSHIP,         tr("Airship, controlled")},
+        // { MAV_TYPE_FREE_BALLOON,    tr("Free balloon, uncontrolled")},
         { MAV_TYPE_ROCKET,          tr("Rocket")},
-        { MAV_TYPE_GROUND_ROVER,    tr("Ground rover")},
-        { MAV_TYPE_SURFACE_BOAT,    tr("Surface vessel, boat, ship")},
-        { MAV_TYPE_SUBMARINE,       tr("Submarine")},
+        // { MAV_TYPE_GROUND_ROVER,    tr("Ground rover")},
+        // { MAV_TYPE_SURFACE_BOAT,    tr("Surface vessel, boat, ship")},
+        // { MAV_TYPE_SUBMARINE,       tr("Submarine")},
         { MAV_TYPE_SPACECRAFT_ORBITER, tr("Spacecraft, orbiter")},
-        { MAV_TYPE_HEXAROTOR,       tr("Hexarotor")},
-        { MAV_TYPE_OCTOROTOR,       tr("Octorotor")},
-        { MAV_TYPE_TRICOPTER,       tr("trirotor")},
-        { MAV_TYPE_FLAPPING_WING,   tr("Flapping wing")},
-        { MAV_TYPE_KITE,            tr("Kite")},
+        // { MAV_TYPE_HEXAROTOR,       tr("Hexarotor")},
+        // { MAV_TYPE_OCTOROTOR,       tr("Octorotor")},
+        // { MAV_TYPE_TRICOPTER,       tr("trirotor")},
+        // { MAV_TYPE_FLAPPING_WING,   tr("Flapping wing")},
+        // { MAV_TYPE_KITE,            tr("Kite")},
         { MAV_TYPE_ONBOARD_CONTROLLER, tr("Onboard companion controller")},
-        { MAV_TYPE_VTOL_TAILSITTER_DUOROTOR,   tr("Two-rotor VTOL using control surfaces in vertical operation in addition. Tailsitter")},
-        { MAV_TYPE_VTOL_TAILSITTER_QUADROTOR,  tr("Quad-rotor VTOL using a V-shaped quad config in vertical operation. Tailsitter")},
-        { MAV_TYPE_VTOL_TILTROTOR,  tr("Tiltrotor VTOL")},
-        { MAV_TYPE_VTOL_FIXEDROTOR,  tr("VTOL Fixedrotor")},
-        { MAV_TYPE_VTOL_TAILSITTER,  tr("VTOL Tailsitter")},
-        { MAV_TYPE_VTOL_TILTWING,   tr("VTOL Tiltwing")},
-        { MAV_TYPE_VTOL_RESERVED5,  tr("VTOL reserved 5")},
+        // { MAV_TYPE_VTOL_TAILSITTER_DUOROTOR,   tr("Two-rotor VTOL using control surfaces in vertical operation in addition. Tailsitter")},
+        // { MAV_TYPE_VTOL_TAILSITTER_QUADROTOR,  tr("Quad-rotor VTOL using a V-shaped quad config in vertical operation. Tailsitter")},
+        // { MAV_TYPE_VTOL_TILTROTOR,  tr("Tiltrotor VTOL")},
+        // { MAV_TYPE_VTOL_FIXEDROTOR,  tr("VTOL Fixedrotor")},
+        // { MAV_TYPE_VTOL_TAILSITTER,  tr("VTOL Tailsitter")},
+        // { MAV_TYPE_VTOL_TILTWING,   tr("VTOL Tiltwing")},
+        // { MAV_TYPE_VTOL_RESERVED5,  tr("VTOL reserved 5")},
         { MAV_TYPE_GIMBAL,          tr("Onboard gimbal")},
         { MAV_TYPE_ADSB,            tr("Onboard ADSB peripheral")},
     };

@@ -494,11 +494,12 @@ public:
 
     void pairRX(int rxType, int rxSubType);
 
-    bool fixedWing() const;
-    bool multiRotor() const;
-    bool vtol() const;
-    bool rover() const;
-    bool sub() const;
+    // bool fixedWing() const;
+    // bool multiRotor() const;
+    // bool vtol() const;
+    // bool rover() const;
+    // bool sub() const;
+    bool rocket() const;
     bool spacecraft() const;
 
     bool supportsThrottleModeCenterZero () const;
