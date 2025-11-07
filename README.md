@@ -5,7 +5,7 @@
 ### 💻 *How to contribute?*
 
 - Check out the original Qgroundcontrol [Developer Guide](https://dev.qgroundcontrol.com/en/).
-- Ask questions & give suggestions! (in-person or on slack / email Cheng (GCS lead) at cxi@ucsb.edu)
+- Ask questions & give suggestions! (in-person or on [slack](gauchorocketproject.slack.com) / email Cheng (GCS lead) at cxi@ucsb.edu)
 - Code (and document)!
 
 ---
@@ -29,4 +29,4 @@
 
 ---
 
-For any additional info contact Gaucho Rocket Project
+For any additional info contact Gaucho Rocket Project on [slack](gauchorocketproject.slack.com)
