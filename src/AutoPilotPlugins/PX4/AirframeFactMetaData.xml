@@ -377,4 +377,8 @@
       <class>Spacecraft</class>
       <type>Free-Flyer</type>
     </airframe>
+    <airframe name="Rocket" id="70001" maintainer="Gaucho Rocket Project">
+      <class>Rocket</class>
+      <type>Rocket engine</type>
+    </airframe>
 </airframes>

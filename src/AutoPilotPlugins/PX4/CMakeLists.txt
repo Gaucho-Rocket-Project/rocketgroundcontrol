@@ -90,6 +90,12 @@ qt_add_qml_module(AutoPilotPluginsPX4Module
         PX4TuningComponentSpacecraftPosition.qml
         PX4TuningComponentSpacecraftRate.qml
         PX4TuningComponentSpacecraftVelocity.qml
+        PX4TuningComponentRocket.qml
+        PX4TuningComponentRocketAll.qml
+        PX4TuningComponentRocketAttitude.qml
+        PX4TuningComponentRocketPosition.qml
+        PX4TuningComponentRocketRate.qml
+        PX4TuningComponentRocketVelocity.qml
         PX4TuningComponentVTOL.qml
         SafetyComponent.qml
         SafetyComponentSummary.qml

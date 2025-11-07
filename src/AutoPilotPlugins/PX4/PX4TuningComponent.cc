@@ -77,6 +77,10 @@ QUrl PX4TuningComponent::setupSource(void) const
             // Spacecraft Type
             qmlFile = "qrc:/qml/QGroundControl/AutoPilotPlugins/PX4/PX4TuningComponentSpacecraft.qml";
             break;
+        case MAV_TYPE_ROCKET:
+            // Rocket Type
+            qmlFile = "qrc:/qml/QGroundControl/AutoPilotPlugins/PX4/PX4TuningComponentRocket.qml";
+            break;
         default:
             break;
     }

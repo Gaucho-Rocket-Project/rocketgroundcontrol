@@ -241,7 +241,7 @@ QString QGCMAVLink::vehicleClassToUserVisibleString(VehicleClass_t vehicleClass)
     //     return QT_TRANSLATE_NOOP("Vehicle Class", "Multi-Rotor");
     // case VehicleClassVTOL:
     //     return QT_TRANSLATE_NOOP("Vehicle Class", "VTOL");
-    // case VehicleClassGeneric:
+    case VehicleClassGeneric:
         return QT_TRANSLATE_NOOP("Vehicle Class", "Generic");
     default:
         return QT_TRANSLATE_NOOP("Vehicle Class", "Unknown");
@@ -277,7 +277,7 @@ QString QGCMAVLink::vehicleClassToInternalString(VehicleClass_t vehicleClass)
     //     return QStringLiteral("RoverBoat");
     // case VehicleClassSub:
     //     return QStringLiteral("Sub");
-    // case VehicleClassSpacecraft:
+    case VehicleClassSpacecraft:
         return QStringLiteral("Spacecraft");
     case VehicleClassRocket:
         return QStringLiteral("Rocket");
@@ -285,7 +285,7 @@ QString QGCMAVLink::vehicleClassToInternalString(VehicleClass_t vehicleClass)
     //     return QStringLiteral("MultiRotor");
     // case VehicleClassVTOL:
     //     return QStringLiteral("VTOL");
-    // case VehicleClassGeneric:
+    case VehicleClassGeneric:
         return QStringLiteral("Generic");
     default:
         return QStringLiteral("Unknown");
@@ -492,6 +492,9 @@ int QGCMAVLink::motorCount(MAV_TYPE mavType, uint8_t frameType)
     }
     case MAV_TYPE_SPACECRAFT_ORBITER:
         return 8;
+
+    case MAV_TYPE_ROCKET:
+        return 9;
 
     default:
         return -1;
