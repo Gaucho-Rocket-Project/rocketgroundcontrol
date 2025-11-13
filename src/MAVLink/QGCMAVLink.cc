@@ -494,7 +494,7 @@ int QGCMAVLink::motorCount(MAV_TYPE mavType, uint8_t frameType)
         return 8;
 
     case MAV_TYPE_ROCKET:
-        return 9;
+        return 1;
 
     default:
         return -1;
