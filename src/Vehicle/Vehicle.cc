@@ -1910,25 +1910,25 @@ void Vehicle::_say(const QString& text)
     AudioOutput::instance()->say(text.toLower());
 }
 
-// bool Vehicle::airship() const
-// {
-//     return QGCMAVLink::isAirship(vehicleType());
-// }
+bool Vehicle::airship() const
+{
+    return QGCMAVLink::isAirship(vehicleType());
+}
 
-// bool Vehicle::fixedWing() const
-// {
-//     return QGCMAVLink::isFixedWing(vehicleType());
-// }
+bool Vehicle::fixedWing() const
+{
+    return QGCMAVLink::isFixedWing(vehicleType());
+}
 
-// bool Vehicle::rover() const
-// {
-//     return QGCMAVLink::isRoverBoat(vehicleType());
-// }
+bool Vehicle::rover() const
+{
+    return QGCMAVLink::isRoverBoat(vehicleType());
+}
 
-// bool Vehicle::sub() const
-// {
-//     return QGCMAVLink::isSub(vehicleType());
-// }
+bool Vehicle::sub() const
+{
+    return QGCMAVLink::isSub(vehicleType());
+}
 
 bool Vehicle::spacecraft() const
 {
@@ -1940,15 +1940,15 @@ bool Vehicle::rocket() const
     return QGCMAVLink::isRocket(vehicleType());
 }
 
-// bool Vehicle::multiRotor() const
-// {
-//     return QGCMAVLink::isMultiRotor(vehicleType());
-// }
+bool Vehicle::multiRotor() const
+{
+    return QGCMAVLink::isMultiRotor(vehicleType());
+}
 
-// bool Vehicle::vtol() const
-// {
-//     return QGCMAVLink::isVTOL(vehicleType());
-// }
+bool Vehicle::vtol() const
+{
+    return QGCMAVLink::isVTOL(vehicleType());
+}
 
 bool Vehicle::supportsThrottleModeCenterZero() const
 {
