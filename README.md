@@ -12,7 +12,24 @@
 
 ### ⚙️ *Building & testing the repository*
 
-- Build the repository using Qgroundcontrol's [build instructions](https://dev.qgroundcontrol.com/en/getting_started/).
+- Build the repository using Qt / cmake (docker not recommended):
+1.  Follow Qgroundcontrol's [build instructions](https://dev.qgroundcontrol.com/en/getting_started/) up to 'Building using Qt Creator: 1. Launch Qt Creator, select Open Project and select the CMakeLists.txt file'.
+2.  <img width="1261" height="736" alt="image" src="https://github.com/user-attachments/assets/36d1b554-27ce-46b4-9e2c-63c27e5de3c0" /> Click 'Manage kits'
+3.  <img width="969" height="565" alt="image" src="https://github.com/user-attachments/assets/3e73db77-a50c-48ab-8216-2d87e8d24eb1" /> Click 'Add'
+4.  <img width="754" height="412" alt="image" src="https://github.com/user-attachments/assets/400ba6e0-f7b3-4ef1-8f2a-3ceb3b24b132" /> Make sure your kit config is EXACTLY as in the image
+5.  In the 'Projects' menu, under 'Build settings', make sure 'CMAKE_PREFIX_PATH' is set to YOUR QT installation: <img width="468" height="22" alt="image" src="https://github.com/user-attachments/assets/9b60472e-eaf2-40ed-a035-6de10c77a0f6" />
+6.  <img width="552" height="238" alt="image" src="https://github.com/user-attachments/assets/eafcb91b-3939-485f-af1f-2596e585d9fc" /> Open 'Qt maintenance tool'
+7.  <img width="1082" height="690" alt="image" src="https://github.com/user-attachments/assets/9399f716-5801-462b-9361-9929e6dbe8c9" /> Select 'Add or remove components'
+8.  <img width="1101" height="792" alt="image" src="https://github.com/user-attachments/assets/38b10131-c344-4f3e-baeb-70a5b0960e61" /> Under 'Qt/Qt 6.10.1/Additional Libraries' make sure you have ALL of the shown modules selected
+9.  Install modules and restart Qt Creator
+10.  <img width="1259" height="731" alt="image" src="https://github.com/user-attachments/assets/a06b9f09-c4b4-42d5-b2c2-1344a7e720e3" /> Open the 'rocketgroundcontrol' project, and under the debug screen click 'Run CMake'
+11.  Build the project using the hammer icon on the bottom left
+12.  Run the compiled application using the './build/Debug/QGroundControl' command
+
+
+
+
+
 -  *Vehicle Setup*: configure rocket type vehicle.
 - Test the compiled application: [User Manual](https://docs.qgroundcontrol.com/en/)
   
