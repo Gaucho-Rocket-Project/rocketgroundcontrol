@@ -11,7 +11,7 @@
 
 #include "APMFirmwarePlugin.h"
 
-struct APMCopterMode
+struct APMRocketMode
 {
     enum Mode : uint32_t{
         STABILIZE   = 0,   // hold level position
@@ -46,20 +46,20 @@ struct APMCopterMode
     };
 };
 
-class ArduCopterFirmwarePlugin : public APMFirmwarePlugin
+class ArduRocketFirmwarePlugin : public APMFirmwarePlugin
 {
     Q_OBJECT
 
 public:
-    explicit ArduCopterFirmwarePlugin(QObject *parent = nullptr);
-    ~ArduCopterFirmwarePlugin();
+    explicit ArduRocketFirmwarePlugin(QObject *parent = nullptr);
+    ~ArduRocketFirmwarePlugin();
 
     void guidedModeLand(Vehicle *vehicle) const override { _setFlightModeAndValidate(vehicle, landFlightMode()); }
     const FirmwarePlugin::remapParamNameMajorVersionMap_t &paramNameRemapMajorVersionMap() const override { return _remapParamName; }
     int remapParamNameHigestMinorVersionNumber(int majorVersionNumber) const override;
     bool multiRotorCoaxialMotors(Vehicle* /*vehicle*/) const override { return _coaxialMotors; }
     bool multiRotorXConfig(Vehicle *vehicle) const override;
-    QString offlineEditingParamFile(Vehicle *vehicle) const override { Q_UNUSED(vehicle); return QStringLiteral(":/FirmwarePlugin/APM/Copter.OfflineEditing.params"); }
+    QString offlineEditingParamFile(Vehicle *vehicle) const override { Q_UNUSED(vehicle); return QStringLiteral(":/FirmwarePlugin/APM/Rocket.OfflineEditing.params"); }
     QString pauseFlightMode() const override;
     QString landFlightMode() const override;
     QString takeControlFlightMode() const override;
