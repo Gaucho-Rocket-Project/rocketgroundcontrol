@@ -613,6 +613,8 @@ QString APMFirmwarePlugin::missionCommandOverrides(QGCMAVLink::VehicleClass_t ve
         return QStringLiteral(":/json/APM-MavCmdInfoSub.json");
     case QGCMAVLink::VehicleClassRoverBoat:
         return QStringLiteral(":/json/APM-MavCmdInfoRover.json");
+    case QGCMAVLink::VehicleClassRocket:
+        return QStringLiteral(":/json/APM-MavCmdInfoRocket.json");
     default:
         qCWarning(APMFirmwarePluginLog) << "APMFirmwarePlugin::missionCommandOverrides called with bad VehicleClass_t:" << vehicleClass;
         return QString();
@@ -718,6 +720,8 @@ QString APMFirmwarePlugin::_vehicleClassToString(QGCMAVLink::VehicleClass_t vehi
         return QStringLiteral("Rover");
     case QGCMAVLink::VehicleClassSub:
         return QStringLiteral("Sub");
+    case QGCMAVLink::VehicleClassRocket:
+        return QStringLiteral("Rocket");
     default:
         qCWarning(APMFirmwarePluginLog) << Q_FUNC_INFO << "called with bad VehicleClass_t:" << vehicleClass;
         return QString();
@@ -1114,6 +1118,8 @@ QString APMFirmwarePlugin::_getLatestVersionFileUrl(Vehicle *vehicle) const
         return baseUrl.arg("Sub");
     } else if (qobject_cast<ArduCopterFirmwarePlugin*>(vehicle->firmwarePlugin())) {
         return baseUrl.arg("Copter");
+    } else if (qobject_cast<RocketFirmwarePlugin*>(vehicle->firmwarePlugin())) {
+        return baseUrl.arg("Rocket");
     } else {
         qCWarning(APMFirmwarePluginLog) << "APMFirmwarePlugin::_getLatestVersionFileUrl Unknown vehicle firmware type" << vehicle->vehicleType();
         return QString();

@@ -22,6 +22,8 @@ if(NOT QGC_DISABLE_APM_PLUGIN)
             ArduRoverFirmwarePlugin.h
             ArduSubFirmwarePlugin.cc
             ArduSubFirmwarePlugin.h
+            ArduRocketFirmwarePlugin.cc
+            ArduRocketFirmwarePlugin.h
     )
 endif()
 

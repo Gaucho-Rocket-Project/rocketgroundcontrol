@@ -99,6 +99,8 @@ public:
     static MockLink *startAPMArduPlaneMockLink(bool sendStatusText, MockConfiguration::FailureMode_t failureMode = MockConfiguration::FailNone);
     static MockLink *startAPMArduSubMockLink(bool sendStatusText, MockConfiguration::FailureMode_t failureMode = MockConfiguration::FailNone);
     static MockLink *startAPMArduRoverMockLink(bool sendStatusText, MockConfiguration::FailureMode_t failureMode = MockConfiguration::FailNone);
+    static MockLink *startAPMRocketMockLink(bool sendStatusText, MockConfiguration::FailureMode_t failureMode = MockConfiguration::FailNone);
+
 
     // Special commands for testing Vehicle::sendMavCommandWithHandler
     static constexpr MAV_CMD MAV_CMD_MOCKLINK_ALWAYS_RESULT_ACCEPTED = MAV_CMD_USER_1;

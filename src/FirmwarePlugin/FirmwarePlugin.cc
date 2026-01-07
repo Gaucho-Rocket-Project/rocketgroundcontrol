@@ -104,6 +104,8 @@ QString FirmwarePlugin::missionCommandOverrides(QGCMAVLink::VehicleClass_t vehic
         return QStringLiteral(":/json/MavCmdInfoSub.json");
     case QGCMAVLink::VehicleClassRoverBoat:
         return QStringLiteral(":/json/MavCmdInfoRover.json");
+    case QGCMAVLink::VehicleClassRocket:
+        return QStringLiteral(":/json/MavCmdInfoRocket.json");
     default:
         qCWarning(FirmwarePluginLog) << "FirmwarePlugin::missionCommandOverrides called with bad VehicleClass_t:" << vehicleClass;
         return QString();

@@ -72,6 +72,10 @@ FirmwarePlugin *APMFirmwarePluginFactory::firmwarePluginForAutopilot(MAV_AUTOPIL
                 _arduSubPluginInstance = new ArduSubFirmwarePlugin;
             }
             return _arduSubPluginInstance;
+        case MAV_TYPE_ROCKET:
+            if (!_arduRocketPluginInstance){
+                _arduRocketPluginInstance = new ArduRocketFirmwarePlugin;
+            }
         default:
             break;
         }

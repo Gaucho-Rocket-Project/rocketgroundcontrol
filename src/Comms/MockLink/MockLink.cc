@@ -331,7 +331,9 @@ void MockLink::_loadParams()
             paramFile.setFileName(":/FirmwarePlugin/APM/Sub.OfflineEditing.params");
         } else if (_vehicleType == MAV_TYPE_GROUND_ROVER ) {
             paramFile.setFileName(":/FirmwarePlugin/APM/Rover.OfflineEditing.params");
-        } else {
+        } else if (_vehicleType == MAV_TYPE_ROCKET ) {
+            paramFile.setFileName(":/FirmwarePlugin/APM/Rocket.OfflineEditing.params");
+        }else {
             paramFile.setFileName(":/FirmwarePlugin/APM/Copter.OfflineEditing.params");
         }
     } else {
@@ -1557,6 +1559,11 @@ MockLink *MockLink::startAPMArduSubMockLink(bool sendStatusText, MockConfigurati
 MockLink *MockLink::startAPMArduRoverMockLink(bool sendStatusText, MockConfiguration::FailureMode_t failureMode)
 {
     return _startMockLinkWorker(QStringLiteral("ArduRover MockLink"), MAV_AUTOPILOT_ARDUPILOTMEGA, MAV_TYPE_GROUND_ROVER, sendStatusText, failureMode);
+}
+
+MockLink *MockLink::startAPMRocketMockLink(bool sendStatusText, MockConfiguration::FailureMode_t failureMode)
+{
+    return _startMockLinkWorker(QStringLiteral("Rocket MockLink"), MAV_AUTOPILOT_ARDUPILOTMEGA, MAV_TYPE_ROCKET, sendStatusText, failureMode);
 }
 
 void MockLink::_sendRCChannels()

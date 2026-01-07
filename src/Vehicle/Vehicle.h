@@ -165,6 +165,7 @@ public:
     Q_PROPERTY(bool                 vtol                        READ vtol                                                           NOTIFY vehicleTypeChanged)
     Q_PROPERTY(bool                 rover                       READ rover                                                          NOTIFY vehicleTypeChanged)
     Q_PROPERTY(bool                 sub                         READ sub                                                            NOTIFY vehicleTypeChanged)
+    Q_PROPERTY(bool                 rocket                      READ rocket                                                          NOTIFY vehicleTypeChanged)
     Q_PROPERTY(bool        supportsThrottleModeCenterZero       READ supportsThrottleModeCenterZero                                 CONSTANT)
     Q_PROPERTY(bool                supportsNegativeThrust       READ supportsNegativeThrust                                         CONSTANT)
     Q_PROPERTY(bool                 supportsJSButton            READ supportsJSButton                                               CONSTANT)

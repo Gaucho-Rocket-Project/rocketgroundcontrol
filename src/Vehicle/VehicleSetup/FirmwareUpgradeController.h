@@ -50,6 +50,7 @@ public:
             PlaneFirmware,
             RoverFirmware,
             SubFirmware,
+            RocketFirmware,
             DefaultVehicleFirmware
         } FirmwareVehicleType_t;
 

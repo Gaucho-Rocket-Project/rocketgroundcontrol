@@ -125,6 +125,7 @@ FirmwareUpgradeController::FirmwareUpgradeController(void)
     _manifestMavTypeToFirmwareVehicleTypeMap["FIXED_WING"] =    PlaneFirmware;
     _manifestMavTypeToFirmwareVehicleTypeMap["GROUND_ROVER"] =  RoverFirmware;
     _manifestMavTypeToFirmwareVehicleTypeMap["SUBMARINE"] =     SubFirmware;
+    _manifestMavTypeToFirmwareVehicleTypeMap["ROCKET"] =        RocketFirmware;
 
     _threadController = new PX4FirmwareUpgradeThreadController(this);
     Q_CHECK_PTR(_threadController);

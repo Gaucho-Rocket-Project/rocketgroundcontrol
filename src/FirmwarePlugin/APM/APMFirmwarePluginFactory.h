@@ -18,6 +18,7 @@ class ArduCopterFirmwarePlugin;
 class ArduPlaneFirmwarePlugin;
 class ArduRoverFirmwarePlugin;
 class ArduSubFirmwarePlugin;
+class ArduRocketFirmwarePlugin;
 
 Q_DECLARE_LOGGING_CATEGORY(FirmwarePluginFactoryLog)
 
@@ -37,4 +38,5 @@ private:
     ArduPlaneFirmwarePlugin *_arduPlanePluginInstance = nullptr;
     ArduRoverFirmwarePlugin *_arduRoverPluginInstance = nullptr;
     ArduSubFirmwarePlugin *_arduSubPluginInstance = nullptr;
+    ArduRocketFirmwarePlugin *_arduRocketPluginInstance = nullptr;
 };

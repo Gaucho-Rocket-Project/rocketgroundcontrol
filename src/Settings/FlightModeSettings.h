@@ -27,6 +27,7 @@ public:
     DEFINE_SETTINGFACT(px4HiddenFlightModesVTOL)
     DEFINE_SETTINGFACT(px4HiddenFlightModesRoverBoat)
     DEFINE_SETTINGFACT(px4HiddenFlightModesSub)
+    DEFINE_SETTINGFACT(px4HiddenFlightModesRocket)
     DEFINE_SETTINGFACT(px4HiddenFlightModesAirship)
     DEFINE_SETTINGFACT(apmHiddenFlightModesMultiRotor)
     DEFINE_SETTINGFACT(apmHiddenFlightModesFixedWing)
@@ -34,5 +35,6 @@ public:
     DEFINE_SETTINGFACT(apmHiddenFlightModesRoverBoat)
     DEFINE_SETTINGFACT(apmHiddenFlightModesSub)
     DEFINE_SETTINGFACT(apmHiddenFlightModesAirship)
+    DEFINE_SETTINGFACT(apmHiddenFlightModesRocket)
     DEFINE_SETTINGFACT(requireModeChangeConfirmation)
 };
