@@ -22,6 +22,7 @@
 #include "ArduCopterFirmwarePlugin.h"
 #include "ArduRoverFirmwarePlugin.h"
 #include "ArduSubFirmwarePlugin.h"
+#include "ArduRocketFirmwarePlugin.h"
 #include "APMParameterMetaData.h"
 #include "LinkManager.h"
 #include "Vehicle.h"
@@ -1118,7 +1119,7 @@ QString APMFirmwarePlugin::_getLatestVersionFileUrl(Vehicle *vehicle) const
         return baseUrl.arg("Sub");
     } else if (qobject_cast<ArduCopterFirmwarePlugin*>(vehicle->firmwarePlugin())) {
         return baseUrl.arg("Copter");
-    } else if (qobject_cast<RocketFirmwarePlugin*>(vehicle->firmwarePlugin())) {
+    } else if (qobject_cast<ArduRocketFirmwarePlugin*>(vehicle->firmwarePlugin())) {
         return baseUrl.arg("Rocket");
     } else {
         qCWarning(APMFirmwarePluginLog) << "APMFirmwarePlugin::_getLatestVersionFileUrl Unknown vehicle firmware type" << vehicle->vehicleType();

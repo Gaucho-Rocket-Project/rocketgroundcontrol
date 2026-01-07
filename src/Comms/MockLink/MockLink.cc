@@ -1561,7 +1561,7 @@ MockLink *MockLink::startAPMArduRoverMockLink(bool sendStatusText, MockConfigura
     return _startMockLinkWorker(QStringLiteral("ArduRover MockLink"), MAV_AUTOPILOT_ARDUPILOTMEGA, MAV_TYPE_GROUND_ROVER, sendStatusText, failureMode);
 }
 
-MockLink *MockLink::startAPMRocketMockLink(bool sendStatusText, MockConfiguration::FailureMode_t failureMode)
+MockLink *MockLink::startAPMArduRocketMockLink(bool sendStatusText, MockConfiguration::FailureMode_t failureMode)
 {
     return _startMockLinkWorker(QStringLiteral("Rocket MockLink"), MAV_AUTOPILOT_ARDUPILOTMEGA, MAV_TYPE_ROCKET, sendStatusText, failureMode);
 }

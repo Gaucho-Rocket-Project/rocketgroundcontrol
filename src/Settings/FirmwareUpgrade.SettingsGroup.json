@@ -20,7 +20,7 @@
     "name":             "apmVehicleType",
     "type":             "uint32",
     "enumStrings":      "Multi-Rotor,Helicopter,Plane,Rover,Sub,Rocket",
-    "enumValues":       "0,1,2,3,4",
+    "enumValues":       "0,1,2,3,4,5",
     "default":     0
 }
 ]

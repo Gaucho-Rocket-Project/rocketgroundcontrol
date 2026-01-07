@@ -12,6 +12,7 @@
 #include "ArduPlaneFirmwarePlugin.h"
 #include "ArduRoverFirmwarePlugin.h"
 #include "ArduSubFirmwarePlugin.h"
+#include "ArduRocketFirmwarePlugin.h"
 #include "QGCLoggingCategory.h"
 
 QGC_LOGGING_CATEGORY(APMFirmwarePluginFactoryLog, "FirmwarePlugin.APMFirmwarePluginFactory");
