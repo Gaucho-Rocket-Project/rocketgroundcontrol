@@ -1,0 +1,21 @@
+{
+    "version":      1,
+    "fileType":  "FactMetaData",
+    "QGC.MetaData.Facts":
+[
+
+{
+    "name":             "heightOfSecondBurn",
+    "shortDesc": "Alt",
+    "type":             "double",
+    "decimalPlaces":    1,
+    "units":            "m"
+},
+{
+    "name":             "timeOfSecondBurn",
+    "shortDesc": "Flight Time",
+    "type":             "elapsedSeconds",
+    "decimalPlaces":    1
+}
+]
+}
