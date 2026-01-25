@@ -3,24 +3,109 @@
     "fileType":  "FactMetaData",
     "QGC.MetaData.Facts":
 [
+        {
+            "name": "chamberPressure",
+            "shortDesc": "Chamber Pressure",
+            "type": "double",
+            "decimalPlaces": 0,
+            "units": "Pa"
+        },
+        {
+            "name": "burnTime",
+            "shortDesc": "Burn Time",
+            "type": "elapsedSeconds",
+            "decimalPlaces": 2
+        },
+        {
+            "name": "throttle",
+            "shortDesc": "Throttle",
+            "type": "double",
+            "decimalPlaces": 1,
+            "units": "%"
+        },
+        {
+            "name": "massFlowRate",
+            "shortDesc": "Mass Flow",
+            "type": "double",
+            "decimalPlaces": 3,
+            "units": "kg/s"
+        },
+        {
+            "name": "servoState",
+            "shortDesc": "Servo State",
+            "type": "int32"
+        },
+        {
+            "name": "enginePosition",
+            "shortDesc": "Engine Position",
+            "type": "double",
+            "decimalPlaces": 1,
+            "units": "deg"
+        },
 
-{
-    "name":             "heightOfSecondBurn",
-    "shortDesc": "Second burn Altitude",
-    "type":             "double",
-    "decimalPlaces":    1,
-    "units":            "m"
-},
-{
-    "name":             "timeOfSecondBurn",
-    "shortDesc": "Flight Time",
-    "type":             "elapsedSeconds",
-    "decimalPlaces":    1,
-    "units":           "s"
-}
+        {
+            "name": "position",
+            "shortDesc": "Position",
+            "type": "double",
+            "decimalPlaces": 2,
+            "units": "m"
+        },
+        {
+            "name": "altitude",
+            "shortDesc": "Altitude",
+            "type": "double",
+            "decimalPlaces": 1,
+            "units": "m"
+        },
+        {
+            "name": "linearAcceleration",
+            "shortDesc": "Linear Accel",
+            "type": "double",
+            "decimalPlaces": 2,
+            "units": "m/s²"
+        },
+        {
+            "name": "angularVelocity",
+            "shortDesc": "Angular Vel",
+            "type": "double",
+            "decimalPlaces": 2,
+            "units": "deg/s"
+        },
+        
+        {
+            "name": "timeOfSecondBurn",
+            "shortDesc": "Second Burn Time",
+            "type": "elapsedSeconds",
+            "decimalPlaces": 2
+        },
+        {
+            "name": "heightOfSecondBurn",
+            "shortDesc": "Second Burn Alt",
+            "type": "double",
+            "decimalPlaces": 1,
+            "units": "m"
+        },
+        {
+            "name": "h0",
+            "shortDesc": "h0",
+            "type": "double",
+            "decimalPlaces": 1,
+            "units": "m"
+        },
+        {
+            "name": "h1",
+            "shortDesc": "h1",
+            "type": "double",
+            "decimalPlaces": 1,
+            "units": "m"
+        },
+
+        {
+            "name": "ambientPressure",
+            "shortDesc": "Ambient Pressure",
+            "type": "double",
+            "decimalPlaces": 0,
+            "units": "Pa"
+        }
 ]
-
-
-
-
 }
