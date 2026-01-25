@@ -6,7 +6,7 @@
 
 {
     "name":             "heightOfSecondBurn",
-    "shortDesc": "Alt",
+    "shortDesc": "Second burn Altitude",
     "type":             "double",
     "decimalPlaces":    1,
     "units":            "m"
@@ -15,7 +15,12 @@
     "name":             "timeOfSecondBurn",
     "shortDesc": "Flight Time",
     "type":             "elapsedSeconds",
-    "decimalPlaces":    1
+    "decimalPlaces":    1,
+    "units":           "s"
 }
 ]
+
+
+
+
 }
