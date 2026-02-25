@@ -13,7 +13,7 @@
         {
             "name": "burnTime",
             "shortDesc": "Burn Time",
-            "type": "elapsedSeconds",
+            "type": "double",
             "decimalPlaces": 2
         },
         {
@@ -75,7 +75,7 @@
         {
             "name": "timeOfSecondBurn",
             "shortDesc": "Second Burn Time",
-            "type": "elapsedSeconds",
+            "type": "double",
             "decimalPlaces": 2
         },
         {
