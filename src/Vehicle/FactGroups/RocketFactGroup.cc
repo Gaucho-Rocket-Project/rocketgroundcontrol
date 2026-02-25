@@ -47,7 +47,7 @@ RocketFactGroup::RocketFactGroup(QObject* parent)
 
     // Engine / HALO
     , _chamberPressure     (0, "chamberPressure",     FactMetaData::valueTypeDouble)
-    , _burnTime            (0, "burnTime",            FactMetaData::valueTypeElapsedTime)
+    , _burnTime            (0, "burnTime",            FactMetaData::valueTypeDouble)
     , _throttle            (0, "throttle",            FactMetaData::valueTypeDouble)
     , _massFlowRate        (0, "massFlowRate",        FactMetaData::valueTypeDouble)
     , _servoState          (0, "servoState",          FactMetaData::valueTypeInt32)
@@ -60,7 +60,7 @@ RocketFactGroup::RocketFactGroup(QObject* parent)
     , _angularVelocity      (0, "angularVelocity",      FactMetaData::valueTypeDouble)
 
     // Flight events
-    , _timeOfSecondBurn     (0, "timeOfSecondBurn",     FactMetaData::valueTypeElapsedTime)
+    , _timeOfSecondBurn     (0, "timeOfSecondBurn",     FactMetaData::valueTypeDouble)
     , _heightOfSecondBurn   (0, "heightOfSecondBurn",   FactMetaData::valueTypeDouble)
     , _h0                   (0, "h0",                   FactMetaData::valueTypeDouble)
     , _h1                   (0, "h1",                   FactMetaData::valueTypeDouble)
