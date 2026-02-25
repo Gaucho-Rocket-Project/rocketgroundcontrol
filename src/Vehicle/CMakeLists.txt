@@ -29,8 +29,8 @@ target_sources(${CMAKE_PROJECT_NAME}
         VehicleLinkManager.h
         VehicleObjectAvoidance.cc
         VehicleObjectAvoidance.h
-        RocketFactGroup.cc
-        RocketFactGroup.h
+        FactGroups/RocketFactGroup.cc
+        FactGroups/RocketFactGroup.h
 )
 
 target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
