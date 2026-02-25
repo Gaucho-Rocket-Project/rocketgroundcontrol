@@ -5,6 +5,43 @@
 static const char* kRocketFactJson =
     "qrc:/json/Vehicle/RocketFact.json";
 
+
+void RocketFactGroup::handleMessage(Vehicle* vehicle, const mavlink_message_t& message)
+{
+    Q_UNUSED(vehicle);
+
+    switch (message.msgid) {
+
+    case MAVLINK_MSG_ID_NAMED_VALUE_FLOAT:
+    {
+        mavlink_named_value_float_t namedValue;
+        mavlink_msg_named_value_float_decode(&message, &namedValue);
+
+        QString name(namedValue.name);
+
+        if (name == "CHAMBER_PRESSURE")
+            _chamberPressure.setRawValue(namedValue.value);
+
+        else if (name == "BURN_TIME")
+            _burnTime.setRawValue(namedValue.value);
+
+        else if (name == "THROTTLE")
+            _throttle.setRawValue(namedValue.value);
+
+        else if (name == "MASS_FLOW")
+            _massFlowRate.setRawValue(namedValue.value);
+
+        else if (name == "AMBIENT_PRESSURE")
+            _ambientPressure.setRawValue(namedValue.value);
+
+        break;
+    }
+
+    default:
+        break;
+    }
+}    
+
 RocketFactGroup::RocketFactGroup(QObject* parent)
     : FactGroup(100, ":/json/Vehicle/RocketFact.json", parent)
 

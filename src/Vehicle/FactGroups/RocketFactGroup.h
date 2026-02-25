@@ -1,6 +1,9 @@
 #pragma once
 
 #include "FactGroup.h"
+#include <mavlink.h>
+
+class Vehicle;
 
 class RocketFactGroup : public FactGroup
 {
@@ -8,6 +11,8 @@ class RocketFactGroup : public FactGroup
 
 public:
     explicit RocketFactGroup(QObject* parent = nullptr);
+
+    void handleMessage(Vehicle* vehicle, const mavlink_message_t& message);
 
     // Engine / HALO
     Q_PROPERTY(Fact* chamberPressure READ chamberPressure CONSTANT)
