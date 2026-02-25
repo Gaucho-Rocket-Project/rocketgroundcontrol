@@ -48,6 +48,8 @@
 #include "BatteryFactGroupListModel.h"
 #include "EscStatusFactGroupListModel.h"
 
+#include "RocketFactGroup.h"
+
 class Actuators;
 class AutoPilotPlugin;
 class Autotune;
@@ -270,6 +272,7 @@ public:
     Q_PROPERTY(FactGroup*           efi             READ efiFactGroup               CONSTANT)
     Q_PROPERTY(Actuators*           actuators       READ actuators                  CONSTANT)
     Q_PROPERTY(HealthAndArmingCheckReport* healthAndArmingCheckReport READ healthAndArmingCheckReport CONSTANT)
+    Q_PROPERTY(RocketFactGroup* rocketFactGroup READ rocketFactGroup CONSTANT) // qml property for rocket telemetry fact group
 
     // Dynamic FactGroupListModel properties
     Q_PROPERTY(QmlObjectListModel*  batteries       READ batteries                  CONSTANT)
@@ -615,6 +618,7 @@ public:
     FactGroup* generatorFactGroup           () { return &_generatorFactGroup; }
     FactGroup* efiFactGroup                 () { return &_efiFactGroup; }
     FactGroup* rpmFactGroup                 () { return &_rpmFactGroup; }
+    RocketFactGroup* rocketFactGroup() { return &_rocketFactGroup; } // getter for rocket telemetry fact group
 
     QmlObjectListModel* batteries           () { return &_batteryFactGroupListModel; }
     QmlObjectListModel* escs                () { return &_escStatusFactGroupListModel; }
@@ -1269,6 +1273,7 @@ private:
     VehicleEFIFactGroup             _efiFactGroup;
     VehicleRPMFactGroup             _rpmFactGroup;
     TerrainFactGroup                _terrainFactGroup;
+    RocketFactGroup                 _rocketFactGroup; // Fact group for Rocket telemetry
 
     // Dynamic FactGroups
     BatteryFactGroupListModel       _batteryFactGroupListModel;

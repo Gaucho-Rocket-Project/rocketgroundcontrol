@@ -335,6 +335,8 @@ void Vehicle::_commonInit()
     _addFactGroup(&_rpmFactGroup,               _rpmFactGroupName);
     _addFactGroup(&_terrainFactGroup,           _terrainFactGroupName);
 
+    _addFactGroup(&_rocketFactGroup,            "rocket"); //connect rocket fact group to vehicle so it gets the messages and can update the facts. The fact group will only have facts if running a firmware plugin which provides them, such as ArduRocket
+
     // Add firmware-specific fact groups, if provided
     QMap<QString, FactGroup*>* fwFactGroups = _firmwarePlugin->factGroups();
     if (fwFactGroups) {
