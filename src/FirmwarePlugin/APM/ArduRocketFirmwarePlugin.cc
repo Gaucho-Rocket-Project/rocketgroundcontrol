@@ -27,23 +27,21 @@ ArduRocketFirmwarePlugin::ArduRocketFirmwarePlugin(QObject *parent)
         { APMRocketMode::RTL,          _rtlFlightMode           },
         { APMRocketMode::CIRCLE,       _circleFlightMode        },
         { APMRocketMode::LAND,         _landFlightMode          },
-        { APMRocketMode::DRIFT,        _driftFlightMode         },
-        { APMRocketMode::SPORT,        _sportFlightMode         },
-        { APMRocketMode::FLIP,         _flipFlightMode          },
-        { APMRocketMode::AUTOTUNE,     _autotuneFlightMode      },
+
+        { APMRocketMode::IDLE,         _idleFlightMode          },
+        { APMRocketMode::ARMED,        _armedFlightMode         },
+        { APMRocketMode::BOOST,        _boostFlightMode         },
+        { APMRocketMode::COAST,        _coastFlightMode         },
+        { APMRocketMode::DROGUE,       _drogueFlightMode        },
+        { APMRocketMode::MAIN,         _mainFlightMode          },
+        { APMRocketMode::LANDED,       _landedFlightMode        },
+
         { APMRocketMode::POS_HOLD,     _posHoldFlightMode       },
         { APMRocketMode::BRAKE,        _brakeFlightMode         },
-        { APMRocketMode::THROW,        _throwFlightMode         },
         { APMRocketMode::AVOID_ADSB,   _avoidADSBFlightMode     },
-        { APMRocketMode::GUIDED_NOGPS, _guidedNoGPSFlightMode   },
         { APMRocketMode::SMART_RTL,    _smartRtlFlightMode      },
-        { APMRocketMode::FLOWHOLD,     _flowHoldFlightMode      },
-        { APMRocketMode::FOLLOW,       _followFlightMode        },
-        { APMRocketMode::ZIGZAG,       _zigzagFlightMode        },
         { APMRocketMode::SYSTEMID,     _systemIDFlightMode      },
-        { APMRocketMode::AUTOROTATE,   _autoRotateFlightMode    },
         { APMRocketMode::AUTO_RTL,     _autoRTLFlightMode       },
-        { APMRocketMode::TURTLE,       _turtleFlightMode        },
     });
 
     static FlightModeList availableFlightModes = {
@@ -57,23 +55,21 @@ ArduRocketFirmwarePlugin::ArduRocketFirmwarePlugin(QObject *parent)
         { _rtlFlightMode         , APMRocketMode::RTL,           true , true },
         { _circleFlightMode      , APMRocketMode::CIRCLE,        true , true },
         { _landFlightMode        , APMRocketMode::LAND,          true , true },
-        { _driftFlightMode       , APMRocketMode::DRIFT,         true , true },
-        { _sportFlightMode       , APMRocketMode::SPORT,         true , true },
-        { _flipFlightMode        , APMRocketMode::FLIP,          true , true },
-        { _autotuneFlightMode    , APMRocketMode::AUTOTUNE,      true , true },
+
+        { _idleFlightMode        , APMRocketMode::IDLE,          true , true },
+        { _armedFlightMode       , APMRocketMode::ARMED,         true , true },
+        { _boostFlightMode       , APMRocketMode::BOOST,         true , true },
+        { _coastFlightMode       , APMRocketMode::COAST,         true , true },
+        { _drogueFlightMode      , APMRocketMode::DROGUE,        true , true },
+        { _mainFlightMode        , APMRocketMode::MAIN,          true , true },
+        { _landedFlightMode      , APMRocketMode::LANDED,        true , true },
+
         { _posHoldFlightMode     , APMRocketMode::POS_HOLD,      true , true },
         { _brakeFlightMode       , APMRocketMode::BRAKE,         true , true },
-        { _throwFlightMode       , APMRocketMode::THROW,         true , true },
         { _avoidADSBFlightMode   , APMRocketMode::AVOID_ADSB,    true , true },
-        { _guidedNoGPSFlightMode , APMRocketMode::GUIDED_NOGPS,  true , true },
         { _smartRtlFlightMode    , APMRocketMode::SMART_RTL,     true , true },
-        { _flowHoldFlightMode    , APMRocketMode::FLOWHOLD,      true , true },
-        { _followFlightMode      , APMRocketMode::FOLLOW,        true , true },
-        { _zigzagFlightMode      , APMRocketMode::ZIGZAG,        true , true },
         { _systemIDFlightMode    , APMRocketMode::SYSTEMID,      true , true },
-        { _autoRotateFlightMode  , APMRocketMode::AUTOROTATE,    true , true },
         { _autoRTLFlightMode     , APMRocketMode::AUTO_RTL,      true , true },
-        { _turtleFlightMode      , APMRocketMode::TURTLE,        true , true },
     };
     updateAvailableFlightModes(availableFlightModes);
 
@@ -97,11 +93,6 @@ int ArduRocketFirmwarePlugin::remapParamNameHigestMinorVersionNumber(int majorVe
     return ((majorVersionNumber == 4) ? 0 : Vehicle::versionNotSetValue);
 }
 
-bool ArduRocketFirmwarePlugin::multiRotorXConfig(Vehicle *vehicle) const
-{
-    return (vehicle->parameterManager()->getParameter(ParameterManager::defaultComponentId, "FRAME")->rawValue().toInt() != 0);
-}
-
 QString ArduRocketFirmwarePlugin::pauseFlightMode() const
 {
     return _modeEnumToString.value(APMRocketMode::BRAKE, _brakeFlightMode);
@@ -117,25 +108,14 @@ QString ArduRocketFirmwarePlugin::takeControlFlightMode() const
     return _modeEnumToString.value(APMRocketMode::LOITER, _loiterFlightMode);
 }
 
-QString ArduRocketFirmwarePlugin::followFlightMode() const
-{
-    return _modeEnumToString.value(APMRocketMode::FOLLOW, _followFlightMode);
-}
-
-QString ArduRocketFirmwarePlugin::stabilizedFlightMode() const
-{
-    return _modeEnumToString.value(APMRocketMode::STABILIZE, _stabilizeFlightMode);
-}
-
 void ArduRocketFirmwarePlugin::updateAvailableFlightModes(FlightModeList &modeList)
 {
     for (FirmwareFlightMode &mode: modeList) {
         mode.fixedWing = false;
-        mode.multiRotor = true;
+        mode.multiRotor = false;
     }
 
     _updateFlightModeList(modeList);
-
 }
 
 uint32_t ArduRocketFirmwarePlugin::_convertToCustomFlightModeEnum(uint32_t val) const
