@@ -1,6 +1,7 @@
 #include "RocketFactGroup.h"
 #include "QGCApplication.h"
 #include "FactMetaData.h"
+#include <cstring>
 
 static const char* kRocketFactJson =
     "qrc:/json/Vehicle/RocketFact.json";
@@ -17,22 +18,50 @@ void RocketFactGroup::handleMessage(Vehicle* vehicle, const mavlink_message_t& m
         mavlink_named_value_float_t namedValue;
         mavlink_msg_named_value_float_decode(&message, &namedValue);
 
-        QString name(namedValue.name);
+        // MAVLink named_value name field is at most 10 characters and might not be null-terminated
+        QString name = QString::fromLatin1(namedValue.name, strnlen(namedValue.name, 10));
 
-        if (name == "CHAMBER_PRESSURE")
+        if (name == "CHAMBER_PR")
             _chamberPressure.setRawValue(namedValue.value);
-
         else if (name == "BURN_TIME")
             _burnTime.setRawValue(namedValue.value);
-
         else if (name == "THROTTLE")
             _throttle.setRawValue(namedValue.value);
-
         else if (name == "MASS_FLOW")
             _massFlowRate.setRawValue(namedValue.value);
-
-        else if (name == "AMBIENT_PRESSURE")
+        else if (name == "ENGINE_POS")
+            _enginePosition.setRawValue(namedValue.value);
+        else if (name == "POSITION")
+            _position.setRawValue(namedValue.value);
+        else if (name == "ALTITUDE")
+            _altitude.setRawValue(namedValue.value);
+        else if (name == "LIN_ACCEL")
+            _linearAcceleration.setRawValue(namedValue.value);
+        else if (name == "ANG_VEL")
+            _angularVelocity.setRawValue(namedValue.value);
+        else if (name == "TIME_BURN2")
+            _timeOfSecondBurn.setRawValue(namedValue.value);
+        else if (name == "H_BURN2")
+            _heightOfSecondBurn.setRawValue(namedValue.value);
+        else if (name == "H0")
+            _h0.setRawValue(namedValue.value);
+        else if (name == "H1")
+            _h1.setRawValue(namedValue.value);
+        else if (name == "AMBIENT_PR")
             _ambientPressure.setRawValue(namedValue.value);
+
+        break;
+    }
+
+    case MAVLINK_MSG_ID_NAMED_VALUE_INT:
+    {
+        mavlink_named_value_int_t namedValue;
+        mavlink_msg_named_value_int_decode(&message, &namedValue);
+
+        QString name = QString::fromLatin1(namedValue.name, strnlen(namedValue.name, 10));
+
+        if (name == "SERVO_STAT")
+            _servoState.setRawValue(namedValue.value);
 
         break;
     }

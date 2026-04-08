@@ -1,8 +1,7 @@
 {
-    "version":      1,
-    "fileType":  "FactMetaData",
-    "QGC.MetaData.Facts":
-[
+    "version": 1,
+    "fileType": "FactMetaData",
+    "QGC.MetaData.Facts": [
         {
             "name": "chamberPressure",
             "shortDesc": "Chamber Pressure",
@@ -42,7 +41,6 @@
             "decimalPlaces": 1,
             "units": "deg"
         },
-
         {
             "name": "position",
             "shortDesc": "Position",
@@ -71,7 +69,6 @@
             "decimalPlaces": 2,
             "units": "deg/s"
         },
-        
         {
             "name": "timeOfSecondBurn",
             "shortDesc": "Second Burn Time",
@@ -99,7 +96,6 @@
             "decimalPlaces": 1,
             "units": "m"
         },
-
         {
             "name": "ambientPressure",
             "shortDesc": "Ambient Pressure",
@@ -107,5 +103,5 @@
             "decimalPlaces": 0,
             "units": "Pa"
         }
-]
+    ]
 }
