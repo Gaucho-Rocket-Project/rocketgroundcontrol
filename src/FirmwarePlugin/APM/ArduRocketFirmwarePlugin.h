@@ -15,15 +15,32 @@ struct APMRocketMode
 {
     enum Mode : uint32_t{
         STABILIZE   = 0,   // Active stabilization (e.g., thrust vectoring)
-        IDLE        = 1,   // Waiting on pad
-        ARMED       = 1,   // Ready for launch
-        BOOST       = 2,   // Engine firing
-        COAST       = 3,   // Engine off, coasting up
-        DROGUE      = 4,   // Drogue chute deployed
-        MAIN        = 5,   // Main chute deployed
-        LANDED      = 6,   // Safely on the ground
-        GUIDED      = 7,   // Navigating to coordinates
-        AUTO        = 8,   // Executing programmed mission
+        ACRO        = 1,   // Rate control via RCS
+        ALT_HOLD    = 2,   // Propulsive hover altitude hold
+        AUTO        = 3,   // Executing programmed mission
+        GUIDED      = 4,   // Navigating to coordinates
+        LOITER      = 5,   // Propulsive hover holding position
+        RTL         = 6,   // Propulsive return to launch
+        CIRCLE      = 7,   // Orbit
+        POSITION    = 8,   // Deprecated
+        LAND        = 9,   // Propulsive landing
+
+        // Custom Rocket Sequence
+        IDLE        = 10,  // Waiting on pad
+        ARMED       = 11,  // Ready for launch
+        BOOST       = 12,  // Engine firing
+        COAST       = 13,  // Engine off, coasting up
+        DROGUE      = 14,  // Drogue chute deployed
+        MAIN        = 15,  // Main chute deployed
+        LANDED      = 16,  // Safely on the ground
+        
+        // Advanced Controls
+        POS_HOLD    = 17,  // Hybrid Loiter
+        BRAKE       = 18,  // Emergency propulsive stop / Hover
+        AVOID_ADSB  = 19,  // Collision avoidance behavior
+        SMART_RTL   = 20,  // Terrain/Path aware return
+        SYSTEMID    = 21,  // System structural vibration ID testing
+        AUTO_RTL    = 22,  // Auto failover RTL
     };
 };
 
