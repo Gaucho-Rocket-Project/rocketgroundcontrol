@@ -19,13 +19,13 @@ ArduRocketFirmwarePlugin::ArduRocketFirmwarePlugin(QObject *parent)
 
     static FlightModeList availableFlightModes = {
         // Mode Name             , Custom Mode                CanBeSet  adv
-        { _idleFlightMode        , APMRocketMode::IDLE,          true , true },
-        { _armedFlightMode       , APMRocketMode::ARMED,         true , true },
-        { _boostFlightMode       , APMRocketMode::BOOST,         true , true },
-        { _coastFlightMode       , APMRocketMode::COAST,         true , true },
-        { _drogueFlightMode      , APMRocketMode::DROGUE,        true , true },
-        { _mainFlightMode        , APMRocketMode::MAIN,          true , true },
-        { _landedFlightMode      , APMRocketMode::LANDED,        true , true },
+        { QStringLiteral("Idle"),   APMRocketMode::IDLE,   true, true },
+        { QStringLiteral("Armed"),  APMRocketMode::ARMED,  true, true },
+        { QStringLiteral("Boost"),  APMRocketMode::BOOST,  true, true },
+        { QStringLiteral("Coast"),  APMRocketMode::COAST,  true, true },
+        { QStringLiteral("Drogue"), APMRocketMode::DROGUE, true, true },
+        { QStringLiteral("Main"),   APMRocketMode::MAIN,   true, true },
+        { QStringLiteral("Landed"), APMRocketMode::LANDED, true, true }
     };
     updateAvailableFlightModes(availableFlightModes);
 
