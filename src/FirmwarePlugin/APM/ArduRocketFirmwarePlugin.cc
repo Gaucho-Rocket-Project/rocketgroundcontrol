@@ -16,9 +16,8 @@ FirmwarePlugin::remapParamNameMajorVersionMap_t ArduRocketFirmwarePlugin::_remap
 
 ArduRocketFirmwarePlugin::ArduRocketFirmwarePlugin(QObject *parent)
     : APMFirmwarePlugin(parent)
-
+{
     static FlightModeList availableFlightModes = {
-        // Mode Name             , Custom Mode                CanBeSet  adv
         { QStringLiteral("Idle"),   APMRocketMode::IDLE,   true, true },
         { QStringLiteral("Armed"),  APMRocketMode::ARMED,  true, true },
         { QStringLiteral("Boost"),  APMRocketMode::BOOST,  true, true },
@@ -27,6 +26,7 @@ ArduRocketFirmwarePlugin::ArduRocketFirmwarePlugin(QObject *parent)
         { QStringLiteral("Main"),   APMRocketMode::MAIN,   true, true },
         { QStringLiteral("Landed"), APMRocketMode::LANDED, true, true }
     };
+
     updateAvailableFlightModes(availableFlightModes);
 
     if (!_remapParamNameIntialized) {
