@@ -14,17 +14,6 @@
 struct APMRocketMode
 {
     enum Mode : uint32_t{
-        STABILIZE   = 0,   // Active stabilization (e.g., thrust vectoring)
-        ACRO        = 1,   // Rate control via RCS
-        ALT_HOLD    = 2,   // Propulsive hover altitude hold
-        AUTO        = 3,   // Executing programmed mission
-        GUIDED      = 4,   // Navigating to coordinates
-        LOITER      = 5,   // Propulsive hover holding position
-        RTL         = 6,   // Propulsive return to launch
-        CIRCLE      = 7,   // Orbit
-        POSITION    = 8,   // Deprecated
-        LAND        = 9,   // Propulsive landing
-
         // Custom Rocket Sequence
         IDLE        = 10,  // Waiting on pad
         ARMED       = 11,  // Ready for launch
@@ -33,14 +22,6 @@ struct APMRocketMode
         DROGUE      = 14,  // Drogue chute deployed
         MAIN        = 15,  // Main chute deployed
         LANDED      = 16,  // Safely on the ground
-        
-        // Advanced Controls
-        POS_HOLD    = 17,  // Hybrid Loiter
-        BRAKE       = 18,  // Emergency propulsive stop / Hover
-        AVOID_ADSB  = 19,  // Collision avoidance behavior
-        SMART_RTL   = 20,  // Terrain/Path aware return
-        SYSTEMID    = 21,  // System structural vibration ID testing
-        AUTO_RTL    = 22,  // Auto failover RTL
     };
 };
 
@@ -52,17 +33,17 @@ public:
     explicit ArduRocketFirmwarePlugin(QObject *parent = nullptr);
     ~ArduRocketFirmwarePlugin();
 
-    void guidedModeLand(Vehicle *vehicle) const override { _setFlightModeAndValidate(vehicle, landFlightMode()); }
+    void guidedModeLand(Vehicle *vehicle) const override { Q_UNUSED(vehicle); }
     const FirmwarePlugin::remapParamNameMajorVersionMap_t &paramNameRemapMajorVersionMap() const override { return _remapParamName; }
     int remapParamNameHigestMinorVersionNumber(int majorVersionNumber) const override;
     QString offlineEditingParamFile(Vehicle *vehicle) const override { Q_UNUSED(vehicle); return QStringLiteral(":/FirmwarePlugin/APM/Rocket.OfflineEditing.params"); }
-    QString pauseFlightMode() const override;
-    QString landFlightMode() const override;
-    QString takeControlFlightMode() const override;
+    QString pauseFlightMode() const override { return QString(); }
+    QString landFlightMode() const override { return QString(); }
+    QString takeControlFlightMode() const override { return QString(); }
     QString followFlightMode() const override { return QString(); }
-    QString gotoFlightMode() const override { return guidedFlightMode(); }
-    QString takeOffFlightMode() const override { return guidedFlightMode(); }
-    QString stabilizedFlightMode() const override { return _stabilizeFlightMode; }
+    QString gotoFlightMode() const override { return QString(); }
+    QString takeOffFlightMode() const override { return QString(); }
+    QString stabilizedFlightMode() const override { return QString(); }
     QString autoDisarmParameter(Vehicle *vehicle) const override { Q_UNUSED(vehicle); return QStringLiteral("DISARM_DELAY"); }
     bool supportsSmartRTL() const override { return false; }
 
@@ -72,16 +53,6 @@ protected:
     uint32_t _convertToCustomFlightModeEnum(uint32_t val) const override;
 
 private:
-    const QString _stabilizeFlightMode = tr("Stabilize");
-    const QString _acroFlightMode = tr("Acro");
-    const QString _altHoldFlightMode = tr("Altitude Hold");
-    const QString _autoFlightMode = tr("Auto");
-    const QString _guidedFlightMode = tr("Guided");
-    const QString _loiterFlightMode = tr("Loiter");
-    const QString _rtlFlightMode = tr("RTL");
-    const QString _circleFlightMode = tr("Circle");
-    const QString _landFlightMode = tr("Land");
-
     // Sequence
     const QString _idleFlightMode = tr("Idle");
     const QString _armedFlightMode = tr("Armed");
@@ -90,14 +61,6 @@ private:
     const QString _drogueFlightMode = tr("Drogue");
     const QString _mainFlightMode = tr("Main Parachute");
     const QString _landedFlightMode = tr("Landed");
-
-    // Advanced
-    const QString _posHoldFlightMode = tr("Position Hold");
-    const QString _brakeFlightMode = tr("Brake");
-    const QString _avoidADSBFlightMode = tr("Avoid ADSB");
-    const QString _smartRtlFlightMode = tr("Smart RTL");
-    const QString _systemIDFlightMode = tr("SystemID");
-    const QString _autoRTLFlightMode = tr("AutoRTL");
 
     static bool _remapParamNameIntialized;
     static FirmwarePlugin::remapParamNameMajorVersionMap_t _remapParamName;

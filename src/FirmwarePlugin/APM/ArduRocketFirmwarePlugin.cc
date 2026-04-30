@@ -16,46 +16,9 @@ FirmwarePlugin::remapParamNameMajorVersionMap_t ArduRocketFirmwarePlugin::_remap
 
 ArduRocketFirmwarePlugin::ArduRocketFirmwarePlugin(QObject *parent)
     : APMFirmwarePlugin(parent)
-{
-    _setModeEnumToModeStringMapping({
-        { APMRocketMode::STABILIZE,    _stabilizeFlightMode     },
-        { APMRocketMode::ACRO,         _acroFlightMode          },
-        { APMRocketMode::ALT_HOLD,     _altHoldFlightMode       },
-        { APMRocketMode::AUTO,         _autoFlightMode          },
-        { APMRocketMode::GUIDED,       _guidedFlightMode        },
-        { APMRocketMode::LOITER,       _loiterFlightMode        },
-        { APMRocketMode::RTL,          _rtlFlightMode           },
-        { APMRocketMode::CIRCLE,       _circleFlightMode        },
-        { APMRocketMode::LAND,         _landFlightMode          },
-
-        { APMRocketMode::IDLE,         _idleFlightMode          },
-        { APMRocketMode::ARMED,        _armedFlightMode         },
-        { APMRocketMode::BOOST,        _boostFlightMode         },
-        { APMRocketMode::COAST,        _coastFlightMode         },
-        { APMRocketMode::DROGUE,       _drogueFlightMode        },
-        { APMRocketMode::MAIN,         _mainFlightMode          },
-        { APMRocketMode::LANDED,       _landedFlightMode        },
-
-        { APMRocketMode::POS_HOLD,     _posHoldFlightMode       },
-        { APMRocketMode::BRAKE,        _brakeFlightMode         },
-        { APMRocketMode::AVOID_ADSB,   _avoidADSBFlightMode     },
-        { APMRocketMode::SMART_RTL,    _smartRtlFlightMode      },
-        { APMRocketMode::SYSTEMID,     _systemIDFlightMode      },
-        { APMRocketMode::AUTO_RTL,     _autoRTLFlightMode       },
-    });
 
     static FlightModeList availableFlightModes = {
         // Mode Name             , Custom Mode                CanBeSet  adv
-        { _stabilizeFlightMode   , APMRocketMode::STABILIZE,     true , true },
-        { _acroFlightMode        , APMRocketMode::ACRO,          true , true },
-        { _altHoldFlightMode     , APMRocketMode::ALT_HOLD,      true , true },
-        { _autoFlightMode        , APMRocketMode::AUTO,          true , true },
-        { _guidedFlightMode      , APMRocketMode::GUIDED,        true , true },
-        { _loiterFlightMode      , APMRocketMode::LOITER,        true , true },
-        { _rtlFlightMode         , APMRocketMode::RTL,           true , true },
-        { _circleFlightMode      , APMRocketMode::CIRCLE,        true , true },
-        { _landFlightMode        , APMRocketMode::LAND,          true , true },
-
         { _idleFlightMode        , APMRocketMode::IDLE,          true , true },
         { _armedFlightMode       , APMRocketMode::ARMED,         true , true },
         { _boostFlightMode       , APMRocketMode::BOOST,         true , true },
@@ -63,13 +26,6 @@ ArduRocketFirmwarePlugin::ArduRocketFirmwarePlugin(QObject *parent)
         { _drogueFlightMode      , APMRocketMode::DROGUE,        true , true },
         { _mainFlightMode        , APMRocketMode::MAIN,          true , true },
         { _landedFlightMode      , APMRocketMode::LANDED,        true , true },
-
-        { _posHoldFlightMode     , APMRocketMode::POS_HOLD,      true , true },
-        { _brakeFlightMode       , APMRocketMode::BRAKE,         true , true },
-        { _avoidADSBFlightMode   , APMRocketMode::AVOID_ADSB,    true , true },
-        { _smartRtlFlightMode    , APMRocketMode::SMART_RTL,     true , true },
-        { _systemIDFlightMode    , APMRocketMode::SYSTEMID,      true , true },
-        { _autoRTLFlightMode     , APMRocketMode::AUTO_RTL,      true , true },
     };
     updateAvailableFlightModes(availableFlightModes);
 
@@ -93,20 +49,7 @@ int ArduRocketFirmwarePlugin::remapParamNameHigestMinorVersionNumber(int majorVe
     return ((majorVersionNumber == 4) ? 0 : Vehicle::versionNotSetValue);
 }
 
-QString ArduRocketFirmwarePlugin::pauseFlightMode() const
-{
-    return _modeEnumToString.value(APMRocketMode::BRAKE, _brakeFlightMode);
-}
 
-QString ArduRocketFirmwarePlugin::landFlightMode() const
-{
-    return _modeEnumToString.value(APMRocketMode::LAND, _landFlightMode);
-}
-
-QString ArduRocketFirmwarePlugin::takeControlFlightMode() const
-{
-    return _modeEnumToString.value(APMRocketMode::LOITER, _loiterFlightMode);
-}
 
 void ArduRocketFirmwarePlugin::updateAvailableFlightModes(FlightModeList &modeList)
 {
@@ -120,16 +63,6 @@ void ArduRocketFirmwarePlugin::updateAvailableFlightModes(FlightModeList &modeLi
 
 uint32_t ArduRocketFirmwarePlugin::_convertToCustomFlightModeEnum(uint32_t val) const
 {
-    switch (val) {
-    case APMCustomMode::AUTO:
-        return APMRocketMode::AUTO;
-    case APMCustomMode::GUIDED:
-        return APMRocketMode::GUIDED;
-    case APMCustomMode::RTL:
-        return APMRocketMode::RTL;
-    case APMCustomMode::SMART_RTL:
-        return APMRocketMode::SMART_RTL;
-    default:
-        return UINT32_MAX;
-    }
+    Q_UNUSED(val);
+    return UINT32_MAX;
 }
